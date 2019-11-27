@@ -1,13 +1,8 @@
-pipeline {
-  agent any
-  stages {
-    stage('build') {
-      steps {
-        sh '''#!/bin/sh
+#!/usr/bin/env groovy
 
-echo "DONE building"'''
-      }
-    }
 
-  }
-}
+def jenkinsfile = fileLoader.fromGit('test','git@github.com:delta2112/webproj.git','master',null,'')
+
+jenkinsfile.runJenkinsfile()
+
+
